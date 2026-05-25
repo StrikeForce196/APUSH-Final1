@@ -1,31 +1,213 @@
-"use client";
-import React from "react";
-import { motion } from "motion/react";
-import { LampContainer } from "../ui/lamp";
- 
-export function LampDemo() {
-  return (
-    <LampContainer>
-      <motion.h1
-        initial={{ opacity: 0.5, y: 100 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        transition={{
-          delay: 0.3,
-          duration: 0.8,
-          ease: "easeInOut",
-        }}
-        className="mt-8 bg-gradient-to-br from-slate-300 to-slate-500 py-4 bg-clip-text text-center text-4xl font-medium tracking-tight text-transparent md:text-7xl"
-      >
-        APUSH HUB <br />
-        <span class="tagline-small">AP US History Made Easy</span>
+<!-- HERO INTRO SECTION -->
+<section class="hero-intro">
+    <div class="lamp-glow"></div>
 
-        .tagline-small {
-        font-size: 0.5em;
-        font-weight: 400;
-        opacity: 0.85;
-        }
+    <div class="hero-content">
+        <h1 class="hero-title">
+            APUSH HUB
+            <br />
+            <span class="tagline-small">
+                AP US History Made Easy
+            </span>
+        </h1>
 
-      </motion.h1>
-    </LampContainer>
-  );
+        <p class="hero-subtitle">
+            Study smarter with timelines, DBQs, AI-powered review,
+            and interactive APUSH tools.
+        </p>
+
+        <a href="#main-content" class="hero-scroll">
+            Explore ↓
+        </a>
+    </div>
+</section>
+
+<!-- START OF ACTUAL WEBSITE CONTENT -->
+<div id="main-content">
+
+    <!-- YOUR EXISTING WEBSITE CONTENT GOES HERE -->
+
+</div>
+
+<style>
+.hero-intro {
+    position: relative;
+    min-height: 100vh;
+    overflow: hidden;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background:
+        radial-gradient(
+            circle at top,
+            rgba(38, 107, 217, 0.35),
+            transparent 35%
+        ),
+        linear-gradient(
+            to bottom,
+            #020617 0%,
+            #0f172a 40%,
+            #111827 100%
+        );
+
+    text-align: center;
+    padding: 2rem;
 }
+
+.lamp-glow {
+    position: absolute;
+    top: -250px;
+    left: 50%;
+
+    transform: translateX(-50%);
+
+    width: 900px;
+    height: 900px;
+
+    background: radial-gradient(
+        circle,
+        rgba(59, 130, 246, 0.45),
+        transparent 70%
+    );
+
+    filter: blur(120px);
+
+    animation: pulseGlow 6s ease-in-out infinite;
+}
+
+.hero-content {
+    position: relative;
+    z-index: 2;
+
+    max-width: 900px;
+
+    animation: fadeUp 1.2s ease forwards;
+}
+
+.hero-title {
+    font-size: clamp(4rem, 9vw, 7rem);
+    font-weight: 700;
+    line-height: 0.95;
+
+    letter-spacing: -0.05em;
+
+    background: linear-gradient(
+        to bottom,
+        #f8fafc,
+        #94a3b8
+    );
+
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+
+    margin-bottom: 1.5rem;
+}
+
+.tagline-small {
+    display: inline-block;
+
+    margin-top: 1rem;
+
+    font-size: 0.32em;
+    font-weight: 500;
+
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+
+    opacity: 0.85;
+}
+
+.hero-subtitle {
+    color: rgba(255,255,255,0.75);
+
+    font-size: 1.2rem;
+    line-height: 1.7;
+
+    max-width: 700px;
+    margin: 0 auto 2rem;
+}
+
+.hero-scroll {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 0.9rem 1.5rem;
+
+    border-radius: 999px;
+
+    background: rgba(255,255,255,0.08);
+
+    border: 1px solid rgba(255,255,255,0.12);
+
+    color: white;
+    text-decoration: none;
+
+    backdrop-filter: blur(12px);
+
+    transition:
+        transform 0.3s ease,
+        background 0.3s ease;
+}
+
+.hero-scroll:hover {
+    transform: translateY(-3px);
+
+    background: rgba(255,255,255,0.14);
+}
+
+@keyframes fadeUp {
+    from {
+        opacity: 0;
+        transform: translateY(60px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes pulseGlow {
+    0%, 100% {
+        transform: translateX(-50%) scale(1);
+        opacity: 0.8;
+    }
+
+    50% {
+        transform: translateX(-50%) scale(1.08);
+        opacity: 1;
+    }
+}
+
+/* MOBILE */
+@media (max-width: 640px) {
+    .hero-title {
+        font-size: 3.5rem;
+    }
+
+    .hero-subtitle {
+        font-size: 1rem;
+    }
+
+    .lamp-glow {
+        width: 600px;
+        height: 600px;
+    }
+}
+</style>
+
+<script>
+const heroIntro = document.querySelector('.hero-intro');
+
+window.addEventListener('scroll', () => {
+    if (!heroIntro) return;
+
+    const scrollY = window.scrollY;
+
+    heroIntro.style.opacity = 1 - scrollY / 700;
+    heroIntro.style.transform = `translateY(${scrollY * 0.15}px)`;
+});
+</script>
