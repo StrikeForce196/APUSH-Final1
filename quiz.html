@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz - APUSH Review</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-brand">
+            <a href="index.html">APUSH Review</a>
+        </div>
+        <div class="nav-links">
+            <a href="index.html">Home</a>
+            <a href="timeline.html">Timeline</a>
+            <a href="flashcards.html">Flashcards</a>
+            <a href="quiz.html">Quiz</a>
+            <a href="settings.html" class="settings-icon"><i class="fas fa-gear"></i></a>
+        </div>
+    </nav>
+
+    <main class="main-content">
+        <h1>Quiz</h1>
+        <p>Test your knowledge of AP US History.</p>
+
+        <div class="quiz-container">
+            <div class="quiz-header">
+                <h2 id="quiz-question">Loading question...</h2>
+                <span class="quiz-counter" id="quiz-counter">Question 1 of 10</span>
+            </div>
+
+            <div class="quiz-options" id="quiz-options">
+                <button class="quiz-option" onclick="selectAnswer(0)">Option A</button>
+                <button class="quiz-option" onclick="selectAnswer(1)">Option B</button>
+                <button class="quiz-option" onclick="selectAnswer(2)">Option C</button>
+                <button class="quiz-option" onclick="selectAnswer(3)">Option D</button>
+            </div>
+
+            <div class="quiz-footer">
+                <button class="btn" id="next-btn" onclick="nextQuestion()" style="display:none;">Next Question</button>
+                <p class="quiz-score" id="quiz-score"></p>
+            </div>
+        </div>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>
