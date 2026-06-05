@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flashcards - APUSH Review</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-brand">
+            <a href="index.html">APUSH Review</a>
+        </div>
+        <div class="nav-links">
+            <a href="index.html">Home</a>
+            <a href="timeline.html">Timeline</a>
+            <a href="flashcards.html">Flashcards</a>
+            <a href="quiz.html">Quiz</a>
+            <a href="settings.html" class="settings-icon"><i class="fas fa-gear"></i></a>
+        </div>
+    </nav>
+
+    <main class="main-content">
+        <h1>Flashcards</h1>
+        <p>Click on a card to flip it and reveal the answer.</p>
+
+        <div class="flashcard-container">
+            <div class="flashcard" id="flashcard" onclick="flipCard()">
+                <div class="flashcard-inner">
+                    <div class="flashcard-front">
+                        <p id="flashcard-question">Loading...</p>
+                    </div>
+                    <div class="flashcard-back">
+                        <p id="flashcard-answer">Loading...</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="flashcard-controls">
+                <button class="btn" onclick="prevCard()"><i class="fas fa-arrow-left"></i> Previous</button>
+                <span class="card-counter" id="card-counter">1 / 1</span>
+                <button class="btn" onclick="nextCard()">Next <i class="fas fa-arrow-right"></i></button>
+            </div>
+        </div>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>
